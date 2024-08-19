@@ -2,10 +2,10 @@ import { useDisclosure } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import { default as toast } from 'react-hot-toast';
 import { CartDialog, Footer, Home, Navbar } from './components';
+import fields from './components/models/Fields';
 import { navbarItems } from './components/models/menu';
 import pizzaData from './components/models/pizzas';
 import RegisterDialog from './components/RegisterDialog';
-import fields from './models/Fields';
 import { getPizzas } from './service/fetchPizzas';
 
 function App() {
