@@ -5,6 +5,7 @@ import { CartDialog, Footer, Home, Navbar } from './components';
 import { navbarItems } from './components/models/menu';
 import pizzaData from './components/models/pizzas';
 import RegisterDialog from './components/RegisterDialog';
+import fields from './models/Fields';
 import { getPizzas } from './service/fetchPizzas';
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
   const [pizzas, setPizzas] = useState(pizzaData);
   const [pizzaList, setPizzaList] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  const { PIZZA_LIST_UPDATED } = fields;
 
   const {
     onOpen: registerDialogOpen,
@@ -44,21 +47,15 @@ function App() {
 
   const fetchPizzas = async () => {
     const pizzas = await getPizzas();
-    if (pizzas) {
-      const updatedPizzas = pizzas.map((pizza) => { // Pizzas es sobreescrito por la data que trae la api
-        pizza.total = pizza.price;
-        pizza.quantity = 1;
-        return pizza
-      });
-      setPizzas(updatedPizzas);
-      toast.success('Lista de pizzas actualizada', {
-        position: 'top-right'
-      });
-    } else {
-      toast.error('Error al cargar la lista de pizzas', {
-        position: 'top-right'
-      });
-    }
+    const updatedPizzas = pizzas.map((pizza) => { // Pizzas es sobreescrito por la data que trae la api
+      pizza.total = pizza.price;
+      pizza.quantity = 1;
+      return pizza;
+    });
+    setPizzas(updatedPizzas);
+    toast.success(PIZZA_LIST_UPDATED, {
+      position: 'top-right'
+    });
   };
 
   useEffect(() => {

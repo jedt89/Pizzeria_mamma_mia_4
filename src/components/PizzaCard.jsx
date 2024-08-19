@@ -3,7 +3,7 @@ import { default as toast } from 'react-hot-toast';
 import { PiSealCheckDuotone, PiShoppingCart } from 'react-icons/pi';
 import { VscSettings } from 'react-icons/vsc';
 import pizzaIcon from '../assets/img/pizzaIcon.png';
-
+import fields from './models/Fields';
 
 const PizzaCard = ({
   desc,
@@ -17,6 +17,8 @@ const PizzaCard = ({
   setTotalPrice,
   pizzas
 }) => {
+  const { CART_ADDED } = fields;
+
   const getIngredients = () => (
     <ul className='ingredients'>
       {ingredients.map((ingredient, index) => (
@@ -54,7 +56,7 @@ const PizzaCard = ({
       );
       setPizzaList(updatedPizzaList);
       setTotalPrice(newTotalPrice);
-      toast.success('Añadido al carrito exitosamente', {
+      toast.success(CART_ADDED, {
         position: 'top-right'
       });
     } else {
@@ -70,7 +72,7 @@ const PizzaCard = ({
         );
         setPizzaList(updatedPizzaList);
         setTotalPrice(newTotalPrice);
-        toast.success('Añadido al carrito exitosamente', {
+        toast.success(CART_ADDED, {
           position: 'top-right'
         });
       }

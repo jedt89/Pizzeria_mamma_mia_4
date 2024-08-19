@@ -8,7 +8,9 @@ const fields = {
   MIN_PASS: 'La contraseña debe tener mínimo 6 caracteres',
   NOT_EQUAL_PASS: 'Las contraseñas no coinciden',
   CART_DIALOG_TITLE: 'Carrito de compras',
-  EMPTY_FIELDS: 'Debes llenar todos los campos correctamente'
+  EMPTY_FIELDS: 'Debes llenar todos los campos correctamente',
+  CART_ADDED: 'Añadido al carrito exitosamente',
+  PIZZA_LIST_UPDATED: 'Lista de pizzas actualizada'
 };
 
 export default fields;
