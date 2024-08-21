@@ -131,6 +131,10 @@ button {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
 
+  * {
+    transition: all 0.15s linear !important;
+  }
+
   .header-text {
     text-align: center;
     height: '100%';
@@ -172,6 +176,10 @@ button {
   * {
     transition: all 0.15s linear !important;
   }
+}
+
+.nav-container img:hover {
+  filter: drop-shadow(0px 0px 5px orange);
 }
 
 .navbar-buttons-container {

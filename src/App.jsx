@@ -1,19 +1,19 @@
 import { useDisclosure } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import { default as toast } from 'react-hot-toast';
-import { CartDialog, Footer, Home, Navbar } from './components';
+import { CartDialog, Footer, Home, Navbar, PizzaCard } from './components';
 import fields from './components/models/Fields';
 import { navbarItems } from './components/models/menu';
 import pizzaData from './components/models/pizzas';
 import RegisterDialog from './components/RegisterDialog';
-import { getPizzas } from './service/fetchPizzas';
+import { getPizzas, getPizza } from './service/fetchPizzas';
 
 function App() {
   const [registry, setRegistry] = useState(false);
+  const [pizza, setPizza] = useState(null);
   const [pizzas, setPizzas] = useState(pizzaData);
   const [pizzaList, setPizzaList] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-
   const { PIZZA_LIST_UPDATED } = fields;
 
   const {
@@ -53,6 +53,10 @@ function App() {
       return pizza;
     });
     setPizzas(updatedPizzas);
+
+    const individualPizza = await getPizza('p001'); // Para traer una sola pizza
+    const updatedPizza = individualPizza;
+    setPizza(updatedPizza);
     toast.success(PIZZA_LIST_UPDATED, {
       position: 'top-right'
     });
@@ -67,7 +71,7 @@ function App() {
       <Navbar
         disabledButtons={disabledButtons}
         items={navbarItems}
-        token={false} // La capa de UI no manejará el token, sino que llegará desde otra ubicación AUTH
+        token={false} 
         total={totalPrice}
         cartOpen={cartOpen}
       />
@@ -91,6 +95,23 @@ function App() {
         setTotalPrice={setTotalPrice}
         totalPrice={totalPrice}
       />
+
+      
+      {pizza && (
+        <PizzaCard
+          key={pizza.id}
+          name={pizza.name}
+          price={pizza.price}
+          ingredients={pizza.ingredients} // Componente pizza renderizado individualmente
+          img={pizza.img}
+          desc={pizza.desc}
+          id={pizza.id}
+          setPizzaList={setPizzaList}
+          pizzaList={pizzaList}
+          setTotalPrice={setTotalPrice}
+          pizzas={pizzas}
+        ></PizzaCard>
+      )}
       <Footer />
     </>
   );

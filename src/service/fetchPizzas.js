@@ -12,3 +12,15 @@ export const getPizzas = async () => {
     return null;
   }
 };
+
+export const getPizza = async (id) => {
+  try {
+    const response = await axios.get(`${URL_BASE}/${id}`);
+    console.log(`${URL_BASE}/${id}`)
+    const data = response.data;
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};

@@ -19,7 +19,11 @@
 
 🚀 Vite: Motor de creación de aplicaciones.
 
+🚀 Axios: Librería de gestión para peticiones HTTP.
+
 🚀 Next UI: Librería de componentes para react.
+
+🚀 React-hot-toast: Librería de notificaciones.
 
 🚀 Framer Motion: Librería de animaciones para react, incluídas con Next UI.
 
