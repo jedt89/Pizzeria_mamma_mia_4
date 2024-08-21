@@ -5,7 +5,8 @@
 
 
 # Deploy 🛜
-➡️ Este proyecto ya cuenta con un servicio de backend incluido, al ejecutar la app en modo dev, se ejecutará el back y front simultáneamente ⬅️
+
+➡️ Este proyecto ya cuenta con un servicio de backend incluido, al ejecutar la app en modo dev, se ejecutará el back y front simultáneamente
 ➡️ npm run dev
 
 🧒 USER: 1234567
@@ -40,7 +41,7 @@
 ➡️ git clone https://github.com/jedt89/Pizzeria_mamma_mia_4.git
 
 2.-Navega al directorio del proyecto e instala las dependencias:
-➡️ Este proyecto ya cuenta con un servicio de backend incluido, al ejecutar la app en modo dev, se ejecutará el back y front simultáneamente ⬅️
+➡️ Este proyecto ya cuenta con un servicio de backend incluido, al ejecutar la app en modo dev, se ejecutará el back y front simultáneamente
 ➡️ npm install
 
 3.- Ejecuta la aplicación en modon dev:
